@@ -8,7 +8,7 @@ host.defineController("Akai", "MPKmini mkII", "1.0", "c790467a-ce30-42d9-8deb-80
 
 host.defineSysexIdentityReply("F0 7E 00 06 02 47 7C 00 19 00 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? F7");
 host.defineMidiPorts(1, 1);
-host.addDeviceNameBasedDiscoveryPair(["MPK mini mkII"], ["MPK mini mkII"]);
+host.addDeviceNameBasedDiscoveryPair(["MPKmini2"], ["MPKmini2"]);
 
 
 String.prototype.getBytes = function () {
@@ -26,6 +26,7 @@ function init()
   host.getMidiInPort(0).setMidiCallback(onMidi);
   mpkMiniMkII = new co.nri.MpkMiniMkII(host);
   mpkMiniMkII.init();
+  
 
 }
 
@@ -49,5 +50,5 @@ function onMidi(status, data1, data2)
 
 function onSysex(data)
 {
-	// printSysex(data);
+	printSysex(data);
 }
